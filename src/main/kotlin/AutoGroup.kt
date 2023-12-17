@@ -53,8 +53,10 @@ import org.laolittle.plugin.joinorquit.AutoConfig.yinglishCommand
 import org.laolittle.plugin.joinorquit.GroupList.enable
 import org.laolittle.plugin.joinorquit.command.AutoGroupCtr
 import org.laolittle.plugin.joinorquit.command.Zuan
-import org.laolittle.plugin.joinorquit.model.CacheClear
-import org.laolittle.plugin.joinorquit.model.PatPatTool.getPat
+//import org.laolittle.plugin.joinorquit.model.CacheClear
+import org.laolittle.plugin.joinorquit.CacheClear
+//import org.laolittle.plugin.joinorquit.model.PatPatTool.getPat
+import org.laolittle.plugin.model.PatPatTool.getPat
 import org.laolittle.plugin.joinorquit.utils.NumberUtil.intConvertToChs
 import org.laolittle.plugin.joinorquit.utils.Tools.encodeImageToMiraiCode
 import org.laolittle.plugin.joinorquit.utils.Tools.encodeToAudio
