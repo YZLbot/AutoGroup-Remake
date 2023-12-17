@@ -217,7 +217,7 @@ object AutoGroup : KotlinPlugin(
 
         GlobalEventChannel.filter { nudgedReply.isNotEmpty() }.subscribeAlways<NudgeEvent> {
             if (subject is Group && !(subject as Group).enable()) return@subscribeAlways
-            if (target == bot) {
+            if (target.id == bot.id) {
                 when ((1..100).random()) {
                     in 1..counterNudge -> {
                         when ((1..100).random()) {
