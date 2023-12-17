@@ -70,8 +70,8 @@ import java.util.*
 object AutoGroup : KotlinPlugin(
     JvmPluginDescription(
         id = "org.laolittle.plugin.AutoGroup",
-        version = "2.0.0",
-        name = "AutoGroup"
+        version = "3.0.0",
+        name = "AutoGroup-Remake"
     ) {
         author("LaoLittle")
         info("折磨群友")
