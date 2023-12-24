@@ -142,7 +142,12 @@ object AutoConfig : AutoSavePluginConfig("AutoConfig") {
 
     @ValueDescription("轮盘赌注消息")
     val rouletteOutMessage: Set<String> by value(setOf("Bang!"))
-    val roulettePassedMessage: Set<String> by value(setOf("你扣动了扳机，但什么也没有发生...", "Bang! 远处传来了一声巨响，但你什么事也没有"))
+    val roulettePassedMessage: Set<String> by value(
+        setOf(
+            "你扣动了扳机，但什么也没有发生...",
+            "Bang! 远处传来了一声巨响，但你什么事也没有"
+        )
+    )
 
     @ValueDescription("轮盘赌注最大禁言时间 (单位: 秒)")
     val rouletteOutMuteRange: Int by value(100)
@@ -159,10 +164,10 @@ object AutoConfig : AutoSavePluginConfig("AutoConfig") {
     @ValueDescription("机器人说话叠词词的概率")
     val reduplicate: Int by value(0)
 
-/*
-    @ValueDescription("是否在禁言期间持续发送消息给操作人以及发送的消息")
-    val keepSendMessageWhenMuted: Boolean by value(false)
-    val initiativeMessage: Set<String> by value(setOf("快点给我解禁"))
+    /*
+        @ValueDescription("是否在禁言期间持续发送消息给操作人以及发送的消息")
+        val keepSendMessageWhenMuted: Boolean by value(false)
+        val initiativeMessage: Set<String> by value(setOf("快点给我解禁"))
 
- */
+     */
 }

@@ -1,5 +1,7 @@
 package org.laolittle.plugin.joinorquit
 
+//import org.laolittle.plugin.joinorquit.model.CacheClear
+//import org.laolittle.plugin.joinorquit.model.PatPatTool.getPat
 import com.huaban.analysis.jieba.JiebaSegmenter
 import com.huaban.analysis.jieba.WordDictionary
 import kotlinx.coroutines.delay
@@ -52,16 +54,13 @@ import org.laolittle.plugin.joinorquit.AutoConfig.yinglishCommand
 import org.laolittle.plugin.joinorquit.GroupList.enable
 import org.laolittle.plugin.joinorquit.command.AutoGroupCtr
 import org.laolittle.plugin.joinorquit.command.Zuan
-//import org.laolittle.plugin.joinorquit.model.CacheClear
-import org.laolittle.plugin.joinorquit.CacheClear
-//import org.laolittle.plugin.joinorquit.model.PatPatTool.getPat
-import org.laolittle.plugin.model.PatPatTool.getPat
 import org.laolittle.plugin.joinorquit.utils.NumberUtil.intConvertToChs
 import org.laolittle.plugin.joinorquit.utils.Tools.encodeImageToMiraiCode
 import org.laolittle.plugin.joinorquit.utils.Tools.encodeToAudio
 import org.laolittle.plugin.joinorquit.utils.Tools.encodeToMiraiCode
 import org.laolittle.plugin.joinorquit.utils.Tools.getYinglishNode
 import org.laolittle.plugin.joinorquit.utils.Tools.reduplicate
+import org.laolittle.plugin.model.PatPatTool.getPat
 import java.io.File
 import java.time.LocalDateTime
 import java.util.*
@@ -142,7 +141,7 @@ object AutoGroup : KotlinPlugin(
             group.sendMessage(msg)
         }
 
-        GlobalEventChannel.filter { memberMutedMessage.isNotEmpty()}
+        GlobalEventChannel.filter { memberMutedMessage.isNotEmpty() }
             .subscribeAlways<MemberMuteEvent>(
                 priority = EventPriority.LOWEST
             ) {
@@ -231,6 +230,7 @@ object AutoGroup : KotlinPlugin(
                                 delay(1000)
                                 subject.sendMessage(superNudgeMessage)
                             }
+
                             else -> {
                                 if (counterNudgeMessage.isNotEmpty())
                                     subject.sendMessage(counterNudgeMessage.random())
@@ -252,6 +252,7 @@ object AutoGroup : KotlinPlugin(
                             }
                         }
                     }
+
                     else -> {
                         val nudgedPerReply = nudgedReply.random()
                         if (nudgedPerReply.contains("%声")) {
@@ -299,6 +300,7 @@ object AutoGroup : KotlinPlugin(
                                 add(it, PlainText(msg))
                             }
                         }
+
                         else -> {
                             val members = mutableSetOf<Member>()
                             while (members.size < 100) {
@@ -495,6 +497,7 @@ object AutoGroup : KotlinPlugin(
                                         return@subscribe ListeningStatus.STOPPED
                                     }
                                 }
+
                                 else -> {
                                     // 囸
                                     if (!allowRejoinRoulette)
