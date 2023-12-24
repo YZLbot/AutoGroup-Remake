@@ -82,7 +82,6 @@ object AutoConfig : AutoSavePluginConfig("AutoConfig") {
     """
     )
     val memberMutedMessage: String by value("%被动% 被%主动% 禁言了，好可惜")
-    val botOperatedMuteMessage: String by value("%被动% 被本大人禁言了，好好反省吧！")
 
     @ValueDescription(
         """

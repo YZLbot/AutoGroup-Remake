@@ -32,7 +32,7 @@ dependencies {
     implementation("io.ktor:ktor-client-json:1.5.4")
     implementation("io.ktor:ktor-client-serialization:1.5.4")
     implementation("io.ktor:ktor-client-okhttp:1.5.4")
-    val overflowVersion = "2.16.0-00fd581-SNAPSHOT"
+    val overflowVersion = "2.16.0-1bf69de-SNAPSHOT"
     compileOnly("top.mrxiaom:overflow-core-api:$overflowVersion")
     testConsoleRuntime("top.mrxiaom:overflow-core:$overflowVersion")
 }

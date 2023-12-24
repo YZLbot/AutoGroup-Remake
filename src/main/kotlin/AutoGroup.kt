@@ -24,7 +24,6 @@ import net.mamoe.mirai.utils.error
 import net.mamoe.mirai.utils.info
 import org.laolittle.plugin.joinorquit.AutoConfig.allowRejoinRoulette
 import org.laolittle.plugin.joinorquit.AutoConfig.botMutedMessage
-import org.laolittle.plugin.joinorquit.AutoConfig.botOperatedMuteMessage
 import org.laolittle.plugin.joinorquit.AutoConfig.botOperatedUnmuteMessage
 import org.laolittle.plugin.joinorquit.AutoConfig.botUnmuteMessage
 import org.laolittle.plugin.joinorquit.AutoConfig.counterNudge
@@ -143,16 +142,12 @@ object AutoGroup : KotlinPlugin(
             group.sendMessage(msg)
         }
 
-        GlobalEventChannel.filter { memberMutedMessage.isNotEmpty() && botOperatedMuteMessage.isNotEmpty() }
+        GlobalEventChannel.filter { memberMutedMessage.isNotEmpty()}
             .subscribeAlways<MemberMuteEvent>(
                 priority = EventPriority.LOWEST
             ) {
                 if (!group.enable()) return@subscribeAlways
-                val msg = if (operatorOrBot == group.botAsMember) botOperatedMuteMessage
-                    .replace("%主动%", operatorOrBot.nameCardOrNick)
-                    .encodeToMiraiCode(member, false)
-                    .deserializeMiraiCode()
-                else memberMutedMessage
+                val msg = memberMutedMessage
                     .encodeToMiraiCode(operatorOrBot, member)
                     .deserializeMiraiCode()
                 group.sendMessage(msg)
