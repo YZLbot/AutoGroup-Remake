@@ -149,7 +149,9 @@ object AutoGroup : KotlinPlugin(
                 val msg = memberMutedMessage
                     .encodeToMiraiCode(operatorOrBot, member)
                     .deserializeMiraiCode()
-                group.sendMessage(msg)
+                if (operatorOrBot.id != group.botAsMember.id) {
+                    group.sendMessage(msg)
+                }
             }
 
         GlobalEventChannel.filter { memberUnmuteMessage.isNotEmpty() && botOperatedUnmuteMessage.isNotEmpty() }
@@ -164,7 +166,9 @@ object AutoGroup : KotlinPlugin(
                 else memberUnmuteMessage
                     .encodeToMiraiCode(operatorOrBot, member)
                     .deserializeMiraiCode()
-                group.sendMessage(msg)
+                if (operatorOrBot.id != group.botAsMember.id) {
+                    group.sendMessage(msg)
+                }
             }
 
         GlobalEventChannel.filter { botMutedMessage.isNotEmpty() }.subscribeAlways<BotMuteEvent> {
